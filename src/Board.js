@@ -92,7 +92,7 @@
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      for(i = 0; i < this.attributes.n; i++) {
+      for(var i = 0; i < this.attributes.n; i++) {
         if(this.hasRowConflictAt(i) === true) {
           return true;
         }
@@ -108,9 +108,9 @@
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
       var pieceCount = 0;
-      for(i = 0; i < this.attributes.n; i++){
+      for(var i = 0; i < this.get('n'); i++){
         if(this.get(i)[colIndex] === 1){
-          ++pieceCount;
+          pieceCount++;
         }
       }
       return pieceCount > 1 ? true : false; // fixme
@@ -118,7 +118,7 @@
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-       for(i = 0; i < this.attributes.n; i++) {
+      for(var i = 0; i < this.get('n'); i++) {
         if(this.hasColConflictAt(i) === true) {
           return true;
         }
